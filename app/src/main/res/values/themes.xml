@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.超级木鱼" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">#000000</item> <!-- 这一行将背景色设为黑色 -->
+    </style>
+
+    <style name="AppTheme.Launcher" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/wooden_fish_1</item>
+    </style>
+</resources>

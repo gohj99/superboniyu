@@ -1,6 +1,5 @@
 package com.sbrechrd.superboniyu
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -12,7 +11,7 @@ class launchActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.launch_screen)
+        setContentView(R.layout.activity_launch)
 
         Handler(Looper.getMainLooper()).postDelayed({
             // 跳转逻辑

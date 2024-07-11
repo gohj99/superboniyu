@@ -8,4 +8,9 @@
     <style name="AppTheme.Launcher" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/wooden_fish_1</item>
     </style>
+  <!-- Base application theme. -->
+    <style name="Base.Theme.超级木鱼" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
 </resources>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="TIME"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <FrameLayout
+            android:id="@+id/Home_Button_FrameLayout_1"
+            android:layout_width="165dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <Button
+                android:id="@+id/Home_Button_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/home_button_background_1"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/Home_Button_1_textView_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="4dp"
+                android:fontFamily="sans-serif-thin"
+                android:paddingStart="59dp"
+                android:paddingTop="55dp"
+                android:text="2233"
+                android:textColor="#C4C4C4"
+                android:textSize="11sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/Home_Button_FrameLayout_2"
+            android:layout_width="165dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <Button
+                android:id="@+id/Home_Button_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/home_button_background_2"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/Home_Button_2_textView_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="4dp"
+                android:fontFamily="sans-serif-thin"
+                android:paddingStart="59dp"
+                android:paddingTop="55dp"
+                android:text="2233"
+                android:textColor="#C4C4C4"
+                android:textSize="11sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/Home_Button_FrameLayout_3"
+            android:layout_width="165dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <Button
+                android:id="@+id/Home_Button_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/home_button_background_3"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/Home_Button_3_textView_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="4dp"
+                android:fontFamily="sans-serif-thin"
+                android:paddingStart="59dp"
+                android:paddingTop="55dp"
+                android:text="2233"
+                android:textColor="#C4C4C4"
+                android:textSize="11sp" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+</ScrollView>

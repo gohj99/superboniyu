@@ -23,6 +23,19 @@ class ClassicActivity : ComponentActivity() {
     private lateinit var textView_merit: TextView
     private lateinit var sharedPref: SharedPreferences
     private lateinit var pagePref: String
+    private var restart: Int = 0
+
+    override fun onResume() {
+        super.onResume()
+        // 在这里刷新数据或更新 UI
+        // 重新启动当前的 Activity
+        if (restart == 0) restart = 1
+        else{
+            val intent = intent
+            finish()
+            startActivity(intent)
+        }
+    }
 
     // 初始化 merit 变量
     var merit: Int by Delegates.observable(0) { _, old, new ->
@@ -67,9 +80,7 @@ class ClassicActivity : ComponentActivity() {
         })
     }
 
-
-
-    // 处理右滑事件
+    // 处理左滑事件
     private fun onSwipeLeft() {
         // 打开新的 Activity
         val intent = Intent(this, HomeActivity::class.java)
@@ -108,6 +119,7 @@ class ClassicActivity : ComponentActivity() {
                 textView_merit = binding_General.textViewMerit
             }
         }
+        merit = sharedPref.getInt("meritPref", 0)
         textView_merit.text = getString(R.string.Merits_accumulated) + merit.toString()
     }
 

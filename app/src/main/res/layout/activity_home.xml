@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -35,19 +36,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/home_button_background_1"
-                android:gravity="center" />
+                android:fontFamily="sans-serif-medium"
+                android:gravity="fill_vertical"
+                android:paddingLeft="58dp"
+                android:paddingTop="44.6dp"
+                android:text="100000"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="#BDBDBD"
+                android:textSize="11.5sp" />
 
-            <TextView
-                android:id="@+id/Home_Button_1_textView_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                android:fontFamily="sans-serif-thin"
-                android:paddingStart="59dp"
-                android:paddingTop="55dp"
-                android:text="2233"
-                android:textColor="#C4C4C4"
-                android:textSize="11sp" />
         </FrameLayout>
 
         <FrameLayout
@@ -63,19 +61,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/home_button_background_2"
-                android:gravity="center" />
+                android:fontFamily="sans-serif-medium"
+                android:gravity="fill_vertical"
+                android:paddingLeft="58dp"
+                android:paddingTop="44.6dp"
+                android:text="100000"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="#BDBDBD"
+                android:textSize="11.5sp" />
 
-            <TextView
-                android:id="@+id/Home_Button_2_textView_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                android:fontFamily="sans-serif-thin"
-                android:paddingStart="59dp"
-                android:paddingTop="55dp"
-                android:text="2233"
-                android:textColor="#C4C4C4"
-                android:textSize="11sp" />
         </FrameLayout>
 
         <FrameLayout
@@ -91,19 +86,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/home_button_background_3"
-                android:gravity="center" />
+                android:fontFamily="sans-serif-medium"
+                android:gravity="fill_vertical"
+                android:paddingLeft="58dp"
+                android:paddingTop="44.6dp"
+                android:text="100000"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="#BDBDBD"
+                android:textSize="11.5sp" />
 
-            <TextView
-                android:id="@+id/Home_Button_3_textView_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                android:fontFamily="sans-serif-thin"
-                android:paddingStart="59dp"
-                android:paddingTop="55dp"
-                android:text="2233"
-                android:textColor="#C4C4C4"
-                android:textSize="11sp" />
         </FrameLayout>
 
         <View

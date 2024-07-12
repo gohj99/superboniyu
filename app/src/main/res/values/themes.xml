@@ -5,6 +5,11 @@
         <item name="android:windowBackground">#000000</item> <!-- 这一行将背景色设为黑色 -->
     </style>
 
+    <style name="Theme.activity_home" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">#000000</item> <!-- 这一行将背景色设为黑色 -->
+        <item name="android:windowSwipeToDismiss">false</item> <!-- 禁止滑动退出 -->
+    </style>
+
     <style name="AppTheme.Launcher" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/wooden_fish_1</item>
     </style>

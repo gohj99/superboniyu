@@ -33,7 +33,7 @@
             android:name=".HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home"
-            android:theme="@style/Theme.超级木鱼" />
+            android:theme="@style/Theme.activity_home" />
 
         <activity
             android:name=".launchActivity"

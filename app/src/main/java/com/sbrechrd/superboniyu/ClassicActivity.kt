@@ -1,9 +1,11 @@
 package com.sbrechrd.superboniyu
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Rect
 import android.os.Bundle
+import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.widget.TextView
@@ -35,6 +37,49 @@ class ClassicActivity : ComponentActivity() {
             // 应用更改
             editor.apply()
         }
+    }
+
+    // 定义手势检测器
+    private val gestureDetector by lazy {
+        GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
+            private val SWIPE_THRESHOLD = 100
+            private val SWIPE_VELOCITY_THRESHOLD = 100
+
+            // 注意：这里的参数没有使用可空类型
+            override fun onFling(
+                e1: MotionEvent?,
+                e2: MotionEvent,
+                velocityX: Float,
+                velocityY: Float
+            ): Boolean {
+                e1?.let {
+                    val diffX = e2.x - e1.x
+                    if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
+                        if (diffX < 0) {
+                            // 检测到从右向左滑动
+                            onSwipeLeft()
+                        }
+                        return true
+                    }
+                }
+                return false // 如果没有检测到滑动手势，返回 false
+            }
+        })
+    }
+
+
+
+    // 处理右滑事件
+    private fun onSwipeLeft() {
+        // 打开新的 Activity
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+        // 设置转场动画
+        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left)
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        return gestureDetector.onTouchEvent(event) || super.onTouchEvent(event)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

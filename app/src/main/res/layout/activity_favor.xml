@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:text="@string/title_activity_classic"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/wooden_fish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="恩情木鱼"
-        android:textColor="#FFFFFF" />
+        android:background="@drawable/wooden_fish_2" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/textView_merit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingTop="11dp"
+        android:text="@string/Merits_accumulated"
+        android:textColor="#C4C4C4"
+        android:textSize="11sp" />
+
+</LinearLayout>

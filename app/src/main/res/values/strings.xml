@@ -4,5 +4,6 @@
     <string name="title_activity_classic">经典木鱼</string>
     <string name="title_activity_General">将军真容</string>
     <string name="title_activity_Favor">恩情木鱼</string>
-    <string name="title_activity_home">主页</string>
+    <string name="title_activity_home">设置</string>
+    <string name="Merits_accumulated">已攒功德：</string>
 </resources>

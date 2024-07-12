@@ -25,7 +25,7 @@
         <FrameLayout
             android:id="@+id/Home_Button_FrameLayout_1"
             android:layout_width="165dp"
-            android:layout_height="80dp"
+            android:layout_height="77dp"
             android:layout_marginTop="10dp"
             android:clipChildren="false"
             android:clipToPadding="false">
@@ -53,7 +53,7 @@
         <FrameLayout
             android:id="@+id/Home_Button_FrameLayout_2"
             android:layout_width="165dp"
-            android:layout_height="80dp"
+            android:layout_height="77dp"
             android:layout_marginTop="10dp"
             android:clipChildren="false"
             android:clipToPadding="false">
@@ -81,7 +81,7 @@
         <FrameLayout
             android:id="@+id/Home_Button_FrameLayout_3"
             android:layout_width="165dp"
-            android:layout_height="80dp"
+            android:layout_height="77dp"
             android:layout_marginTop="10dp"
             android:clipChildren="false"
             android:clipToPadding="false">

@@ -1,19 +1,132 @@
 package com.sbrechrd.superboniyu
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.graphics.Rect
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.View
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import com.sbrechrd.superboniyu.databinding.ActivityClassicBinding
+import com.sbrechrd.superboniyu.databinding.ActivityFavorBinding
+import com.sbrechrd.superboniyu.databinding.ActivityGeneralBinding
+import kotlin.properties.Delegates
 
 
 class ClassicActivity : ComponentActivity() {
-    private lateinit var binding: ActivityClassicBinding
+    private lateinit var binding_Classic: ActivityClassicBinding
+    private lateinit var binding_Favor: ActivityFavorBinding
+    private lateinit var binding_General: ActivityGeneralBinding
+    private lateinit var textView_merit: TextView
+    private lateinit var sharedPref: SharedPreferences
+    private lateinit var pagePref: String
+
+    // 初始化 merit 变量
+    var merit: Int by Delegates.observable(0) { _, old, new ->
+        // 当 merit 的值改变时，这个 lambda 表达式会被调用
+        if (new != old) {
+            // 更新 TextView 的文本
+            textView_merit.text = getString(R.string.Merits_accumulated) + new.toString()
+            // 获取 SharedPreferences.Editor 对象以进行修改
+            val editor = sharedPref.edit()
+            // 将 merit 的新值写入 "meritPref" 键
+            editor.putInt("meritPref", new)
+            // 应用更改
+            editor.apply()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // 使用正确的绑定类名，这个名字基于您的布局文件名
-        binding = ActivityClassicBinding.inflate(layoutInflater)
-        setContentView(binding.root) // 只调用一次 setContentView
+        // 检测主页，并绑定类名
+        sharedPref = getSharedPreferences("Pref", Context.MODE_PRIVATE)
+        pagePref = sharedPref.getString("PagePref", "ClassicActivity") ?: "ClassicActivity"
+        when (pagePref){
+            "ClassicActivity" -> {
+                binding_Classic = ActivityClassicBinding.inflate(layoutInflater)
+                setContentView(binding_Classic.root)
+                click_woodenFish(binding_Classic.woodenFish)
+                textView_merit = binding_Classic.textViewMerit
+            }
+            "FavorActivity" -> {
+                binding_Favor = ActivityFavorBinding.inflate(layoutInflater)
+                setContentView(binding_Favor.root)
+                click_woodenFish(binding_Favor.woodenFish)
+                textView_merit = binding_Favor.textViewMerit
+            }
+            "GeneralActivity" -> {
+                binding_General = ActivityGeneralBinding.inflate(layoutInflater)
+                setContentView(binding_General.root)
+                click_woodenFish(binding_General.woodenFish)
+                textView_merit = binding_General.textViewMerit
+            }
+        }
+        textView_merit.text = getString(R.string.Merits_accumulated) + merit.toString()
+    }
 
+    private fun click_woodenFish(woodenFish: View){
+        woodenFish.setOnTouchListener { v, event ->
+            // 获取按钮的边界
+            val rect = Rect(v.left, v.top, v.right, v.bottom)
+
+            // 处理不同的触摸事件
+            when (event.action) {
+                // 按钮按下事件
+                MotionEvent.ACTION_DOWN -> {
+                    // 缩小按钮的动画
+                    v.animate()
+                        .scaleX(0.9f)
+                        .scaleY(0.9f)
+                        .setDuration(150)
+                        .start()
+                    true // 返回true表示事件已被处理
+                }
+                // 按钮抬起事件
+                MotionEvent.ACTION_UP -> {
+                    // 放大按钮的动画
+                    v.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(150)
+                        .withEndAction {
+                            // 检查手指是否还在按钮上
+                            if (rect.contains(v.left + event.x.toInt(), v.top + event.y.toInt())) {
+                                // 手指仍在按钮上，响应事件
+                                merit += 1
+                            }
+                        }
+                        .start()
+                    true // 返回true表示事件已被处理
+                }
+                // 按钮取消事件，例如手指移出屏幕
+                MotionEvent.ACTION_CANCEL -> {
+                    // 恢复按钮大小的动画
+                    v.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(150)
+                        .start()
+                    true // 返回true表示事件已被处理
+                }
+                // 按钮移动事件
+                MotionEvent.ACTION_MOVE -> {
+                    // 检查手指是否移出了按钮的边界
+                    if (!rect.contains(v.left + event.x.toInt(), v.top + event.y.toInt())) {
+                        // 手指移出了按钮，取消动画并恢复按钮大小
+                        v.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(150)
+                            .start()
+                        v.scaleX = 1f
+                        v.scaleY = 1f
+                    }
+                    true // 返回true表示事件已被处理
+                }
+                else -> false // 其他事件不处理，返回false
+            }
+        }
     }
 }

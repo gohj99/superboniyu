@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView_ico"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:maxWidth="55dp"
         android:maxHeight="55dp"
         android:scaleType="centerCrop"

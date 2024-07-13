@@ -28,10 +28,11 @@
         android:id="@+id/textView_merit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal"
-        android:paddingTop="11dp"
+        android:paddingTop="12dp"
         android:text="@string/accumulated_favor"
-        android:textColor="#C4C4C4"
-        android:textSize="11sp" />
+        android:textColor="#BDBDBD"
+        android:textSize="11.5sp" />
 
 </LinearLayout>

@@ -1,7 +1,10 @@
 package com.sbrechrd.superboniyu
 
+import android.bluetooth.BluetoothDevice
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.SharedPreferences
 import android.graphics.Rect
 import android.os.Bundle
@@ -9,11 +12,13 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.sbrechrd.superboniyu.databinding.ActivityClassicBinding
 import com.sbrechrd.superboniyu.databinding.ActivityFavorBinding
 import com.sbrechrd.superboniyu.databinding.ActivityGeneralBinding
 import kotlin.properties.Delegates
+
 
 
 class ClassicActivity : ComponentActivity() {
@@ -23,6 +28,7 @@ class ClassicActivity : ComponentActivity() {
     private lateinit var textView_merit: TextView
     private lateinit var sharedPref: SharedPreferences
     private lateinit var pagePref: String
+    private lateinit var bottom_text: String
     private var restart: Int = 0
 
     override fun onResume() {
@@ -42,7 +48,7 @@ class ClassicActivity : ComponentActivity() {
         // 当 merit 的值改变时，这个 lambda 表达式会被调用
         if (new != old) {
             // 更新 TextView 的文本
-            textView_merit.text = getString(R.string.Merits_accumulated) + new.toString()
+            textView_merit.text = bottom_text + new.toString()
             // 获取 SharedPreferences.Editor 对象以进行修改
             val editor = sharedPref.edit()
             // 将 merit 的新值写入 "meritPref" 键
@@ -85,6 +91,8 @@ class ClassicActivity : ComponentActivity() {
         // 打开新的 Activity
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
+        // 结束当前页面
+        finish()
         // 设置转场动画
         overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left)
     }
@@ -105,22 +113,25 @@ class ClassicActivity : ComponentActivity() {
                 setContentView(binding_Classic.root)
                 click_woodenFish(binding_Classic.woodenFish)
                 textView_merit = binding_Classic.textViewMerit
+                bottom_text = getString(R.string.Merits_accumulated)
             }
             "FavorActivity" -> {
                 binding_Favor = ActivityFavorBinding.inflate(layoutInflater)
                 setContentView(binding_Favor.root)
                 click_woodenFish(binding_Favor.woodenFish)
                 textView_merit = binding_Favor.textViewMerit
+                bottom_text = getString(R.string.accumulated_favor)
             }
             "GeneralActivity" -> {
                 binding_General = ActivityGeneralBinding.inflate(layoutInflater)
                 setContentView(binding_General.root)
                 click_woodenFish(binding_General.woodenFish)
                 textView_merit = binding_General.textViewMerit
+                bottom_text = getString(R.string.accumulated_favor)
             }
         }
         merit = sharedPref.getInt("meritPref", 0)
-        textView_merit.text = getString(R.string.Merits_accumulated) + merit.toString()
+        textView_merit.text = bottom_text + merit.toString()
     }
 
     private fun click_woodenFish(woodenFish: View){

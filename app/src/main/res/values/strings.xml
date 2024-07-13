@@ -6,4 +6,5 @@
     <string name="title_activity_Favor">恩情木鱼</string>
     <string name="title_activity_home">设置</string>
     <string name="Merits_accumulated">已攒功德：</string>
+    <string name="accumulated_favor">已攒恩情：</string>
 </resources>

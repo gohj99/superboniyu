@@ -22,7 +22,7 @@
         android:id="@+id/wooden_fish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/wooden_fish_2" />
+        android:background="@drawable/img_qxk" />
 
     <TextView
         android:id="@+id/textView_merit"
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingTop="11dp"
-        android:text="@string/Merits_accumulated"
+        android:text="@string/accumulated_favor"
         android:textColor="#C4C4C4"
         android:textSize="11sp" />
 

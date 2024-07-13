@@ -1,6 +1,7 @@
 package com.sbrechrd.superboniyu
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Rect
 import android.os.Bundle
@@ -65,7 +66,10 @@ class HomeActivity : ComponentActivity() {
 
     // 处理左滑事件
     private fun onSwipeRight() {
-        // 结束当前的 Activity
+        // 打开新的 Activity
+        val intent = Intent(this, ClassicActivity::class.java)
+        startActivity(intent)
+        // 结束当前页面
         finish()
         // 设置转场动画
         overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right)
@@ -83,7 +87,13 @@ class HomeActivity : ComponentActivity() {
         sharedPref = getSharedPreferences("Pref", Context.MODE_PRIVATE)
         pagePref = sharedPref.getString("PagePref", "ClassicActivity") ?: "ClassicActivity"
 
-        //显示时间
+        // 修改功德值
+        val merit = sharedPref.getInt("meritPref", 0)
+        binding.HomeButton1.text = merit.toString()
+        binding.HomeButton2.text = merit.toString()
+        binding.HomeButton3.text = merit.toString()
+
+        // 显示时间
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed(object : Runnable {
             override fun run() {
